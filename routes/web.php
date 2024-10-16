@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CategoriesController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TaskController;
@@ -18,3 +19,6 @@ Route::patch('/edit/{id}', [TaskController::class, 'update']);
 Route::delete('/{id}', [TaskController::class, 'destroy'])->name('task.destroy');
 
 Route::resource('categories', CategoriesController::class);
+
+Route::post('/register', [AuthController::class, 'register']);
+Route::post('/login', [AuthController::class,'login']);
